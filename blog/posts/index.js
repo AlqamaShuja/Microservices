@@ -36,7 +36,7 @@ app.post("/posts", async (req, res) => {
         id, title
     }
 
-    await axios.post("http://localhost:4005/events", {
+    await axios.post("http://event-bus-srv:4005/events", {
         type: "PostCreated",
         data: {
             id, title
@@ -57,5 +57,5 @@ app.post("/events", (req, res) => {
 const port = process.env.PORT || 4000;
 app.listen(port, ()=>{
     console.log("change in index.js");
-    console.log("Posts: Server running on http://localhost:"+port);
+    console.log("Posts: Server running on http://posts-clusterip-srv:" + port);
 })
